@@ -1,21 +1,19 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * main - Entry point
- * Description: prints 'Holberton \n'
- * Return: Always 0 (success)
+ * main - checks the code
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-char str[] = "Holberton\n";
-int i = 0;
+	char c;
 
-while (str[i] != '\0')
-	{
-	char c = str[i];
-
-	_putchar(c);
-	i++;
-	}
-return (0);
+	c = 'A';
+	printf("%c: %d\n", c, _isupper(c));
+	c = 'a';
+	printf("%c: %d\n", c, _isupper(c));
+	return (0);
 }
 
