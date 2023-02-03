@@ -1,7 +1,7 @@
 x1A. C - Hash tables
 ====================
 
--   By Julien Barbier
+-   By Nkugwa Mark William
 -   Weight: 1
 
 
