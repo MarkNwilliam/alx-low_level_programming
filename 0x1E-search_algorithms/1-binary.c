@@ -2,31 +2,76 @@
 #include <stdio.h>
 
 /**
- * binary_search - Searches for a value in a sorted array of integers using the Binary search algorithm
- *
- * @array: A pointer to the first element of the array to search in
- * @size: The number of elements in array
- * @value: The value to search for
- *
- * Return: The index where value is located, or -1 if value is not present in array or if array is NULL
+ * print_array - prints the contents inside the array
+ * @array: the array to print
+ * @l: start point
+ * @r: end point
+ * Return: void
  */
-int binary_search(int *array, size_t size, int value) {
-    if (array == NULL) {
-        return -1;
-    }
+void print_array(int *array, size_t l, size_t r)
+{
+	size_t i;
 
-    size_t l = 0;
-    size_t r = size - 1;
-    while (l <= r) {
-        size_t m = (l + r) / 2;
-        if (array[m] == value) {
-            return m;
-        } else if (array[m] < value) {
-            l = m + 1;
-        } else {
-            r = m - 1;
-        }
-    }
+	i = l;
+	if (i <= r)
+		printf("Searching in array: ");
+	while (l <= r)
+	{
+		printf("%u", array[l]);
+		if (l != r)
+			printf(", ");
+		++l;
+	}
 
-    return -1;
+	if (i <= r)
+		printf("\n");
+}
+
+
+
+
+/**
+ * binary_S - binary search algorithm
+ * @array: the array to print
+ * @l: start point
+ * @r: end point
+ * @value: value to search
+ * Return: index position
+ */
+
+
+
+
+int binary_S(int *array, size_t l, size_t r, int value)
+{
+	int mid = l + (r - l) / 2;
+
+	print_array(array, l, r);
+	if (r >= l)
+	{
+		if (array[mid] == value)
+			return (mid);
+		else if (value < array[mid])
+			return (binary_S(array, l, mid - 1, value));
+		else if (value > array[mid])
+			return (binary_S(array, mid + 1, r, value));
+	}
+	return (-1);
+}
+
+
+
+/**
+ * binary_search - binary search algorithm
+ * @array: the array to print
+ * @size: size of array
+ * @value: value to search
+ * Return: index position
+ */
+int binary_search(int *array, size_t size, int value)
+{
+	if (array == NULL)
+		return (-1);
+
+	return (binary_S(array, 0, size - 1, value));
 }
